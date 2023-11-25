@@ -1,4 +1,4 @@
-let throttle = require('lodash.throttle');
+import throttle from 'lodash.throttle'
 
 const form = document.querySelector('form');
 
@@ -17,7 +17,7 @@ function setVeluesToForm() {
 	}
 	formData = velues;
 
-	for (key in formData) {
+	for (let key in formData) {
 		const inputElement = form.querySelector(`[name="${key}"]`);
 		if (inputElement) {
 			inputElement.value = formData[key];
@@ -32,21 +32,22 @@ function onInput(e) {
 	setValuesToLocalStorage(formData)
 }
 
-function setValuesToLocalStorage(data) {
-	const stringData = JSON.stringify(data)
-	localStorage.setItem(STORAGE_KEY, stringData)
-}
-
 function onFormSubmit(e) {
 	e.preventDefault();
 	localStorage.clear();
-	for (key in formData) {
+	for (let key in formData) {
 		const inputElement = form.querySelector(`[name="${key}"]`);
 		if (inputElement) {
 			inputElement.value = "";
 		}
 	}
 	console.log(formData);
+}
+
+
+function setValuesToLocalStorage(data) {
+	const stringData = JSON.stringify(data)
+	localStorage.setItem(STORAGE_KEY, stringData)
 }
 
 
