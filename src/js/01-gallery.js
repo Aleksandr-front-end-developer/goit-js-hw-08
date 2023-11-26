@@ -28,7 +28,10 @@ galaryWrapper.innerHTML = markupGallary;
 
 galaryWrapper.addEventListener('click', showModalImage);
 
-let gallery = new SimpleLightbox('.gallery a');
+let gallery = new SimpleLightbox('.gallery a', {
+	captionsData: 'alt',
+	captionDelay: 250
+});
 
 function showModalImage(event) {
 	event.preventDefault();

@@ -42,6 +42,7 @@ function onFormSubmit(e) {
 		}
 	}
 	console.log(formData);
+	formData = {};
 }
 
 

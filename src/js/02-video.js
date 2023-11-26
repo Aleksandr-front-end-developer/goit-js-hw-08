@@ -22,14 +22,14 @@ function setPlaybackTimeToLocalStorage() {
 	player.on('timeupdate', throttle(setData, 1000));
 
 	function setData(data) {
-		localStorage.setItem("videoplayer-current-time", JSON.stringify(data));
+		localStorage.setItem("videoplayer-current-time", JSON.stringify(data.seconds));
 	}
 }
 
 function getPlaybackTimeOfLocalStorage() {
 	const timePlayer = JSON.parse(localStorage.getItem("videoplayer-current-time"));
 	if (timePlayer) {
-		return timePlayer.seconds
+		return timePlayer
 	}
 }
 
